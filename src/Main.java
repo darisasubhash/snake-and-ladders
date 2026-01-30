@@ -8,5 +8,9 @@ public class Main {
         System.out.println("Starting Position : "+player.getPosition());
         Service service=new Service();
         service.playerTurn(player);
+        while(!service.hasPlayerWon(player)){
+            service.playerTurn(player);
+        }
+        System.out.println("Player Won the game");
     }
 }
