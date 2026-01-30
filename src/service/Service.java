@@ -9,7 +9,7 @@ import java.util.Random;
 public class Service {
     static Random random =new Random();
     private static final int WINNING_POSITION = 100;
-    public void playerTurn(Player player){
+    public boolean playerTurn(Player player){
         int value= Dice.roll();
         player.incrementDiceCont();
         System.out.println("Dice rolled: " + value + " (Roll #" + player.getDiecCount()+ ")");
@@ -21,7 +21,8 @@ public class Service {
         switch (option) {
             case GameConstants.NO_PLAY:
                 optionName = "No Play";
-                break;
+                System.out.println(optionName);
+                return false;
 
             case GameConstants.LADDER:
                 optionName = "Ladder";
@@ -29,7 +30,8 @@ public class Service {
                 if(ladval<=WINNING_POSITION){
                     player.setPosition(ladval);
                 }
-                break;
+                System.out.println(optionName);
+                return true;
 
             case GameConstants.SNAKE:
                 optionName = "Snake";
@@ -40,11 +42,10 @@ public class Service {
                 else{
                     player.setPosition(snakevalue);
                 }
-                break;
+                System.out.println(optionName);
+                return false;
         }
-
-        System.out.println("Option: " + optionName);
-        System.out.println("Player's new position : " + player.getPosition());
+        return false;
     }
     public boolean hasPlayerWon(Player player){
         return player.getPosition()==WINNING_POSITION;

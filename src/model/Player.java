@@ -3,9 +3,12 @@ package model;
 public class Player {
     private int position;
     private int diceCount;
+    private String name;
 
-    public Player(){
+    public Player(String name){
         this.position=0;
+        this.diceCount=0;
+        this.name=name;
     }
 
     public int getPosition() {
@@ -21,5 +24,13 @@ public class Player {
     }
     public void incrementDiceCont(){
         this.diceCount++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
