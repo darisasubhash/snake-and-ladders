@@ -12,5 +12,6 @@ public class Main {
             service.playerTurn(player);
         }
         System.out.println("Player Won the game");
+        System.out.println("Number of times dice rolled by player to win the game "+ player.getDiecCount());
     }
 }

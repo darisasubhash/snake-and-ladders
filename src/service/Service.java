@@ -11,6 +11,9 @@ public class Service {
     private static final int WINNING_POSITION = 100;
     public void playerTurn(Player player){
         int value= Dice.roll();
+        player.incrementDiceCont();
+        System.out.println("Dice rolled: " + value + " (Roll #" + player.getDiecCount()+ ")");
+
         System.out.println("Dice rolled - value : "+value);
         int option = random.nextInt(3);
         String optionName = "";
